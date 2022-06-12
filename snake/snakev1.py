@@ -4,7 +4,7 @@ from random import*
 from tkinter.messagebox import showerror
 from time import time
 
-FICHIER = open(file="Terrain0")
+FICHIER = open(file="data/board.txt")
 
 
 class Fichier(Frame):
@@ -75,16 +75,16 @@ class Serpent:
         self.debut = time()
         self.n = 1  # si c'est un jeu qui change de terrain terrain, on commence par le 2e terrain
         self.fen.title("SNAKE Version 1.2")
-        self.LEFT = PhotoImage(file="Left.gif")  # initialisation des photos
-        self.RIGHT = PhotoImage(file="Right.gif")
-        self.UP = PhotoImage(file="Up.gif")
-        self.DOWN = PhotoImage(file="Down.gif")
-        self.CORPS = PhotoImage(file="Body.gif")
-        self.POMME = PhotoImage(file="Goody.gif")
-        self.LIFE = PhotoImage(file='newLife.gif')
-        self.POWER = PhotoImage(file="PowerUp.gif")
-        self.GOODY = PhotoImage(file='Goody.gif')
-        self.BRIC = PhotoImage(file='bric1.GIF')
+        self.LEFT = PhotoImage(file="images/v1/Left.gif")  # initialisation des photos
+        self.RIGHT = PhotoImage(file="images/v1/Right.gif")
+        self.UP = PhotoImage(file="images/v1/Up.gif")
+        self.DOWN = PhotoImage(file="images/v1/Down.gif")
+        self.CORPS = PhotoImage(file="images/v1/Body.gif")
+        self.POMME = PhotoImage(file="images/v1/Goody.gif")
+        self.LIFE = PhotoImage(file='images/v1/newLife.gif')
+        self.POWER = PhotoImage(file="images/v1/PowerUp.gif")
+        self.GOODY = PhotoImage(file='images/v1/Goody.gif')
+        self.BRIC = PhotoImage(file='images/v1/bric1.GIF')
         self.nbric1, self.nbric2 = 9, 0  # contiendrons les id des brics
         FICHIER.seek(0)
         a = FICHIER.readline()
@@ -172,12 +172,12 @@ class Serpent:
         self.lblevel.pack()
         frame.pack(side=LEFT)
 
-    def terrain1(self, n=1):  # param n est le n iem terrain à ouvrir
+    def terrain1(self, n=1):  # param n is the nth board to open
         for b in range(self.nbric1, self.nbric2):
             self.can.delete(b)
 
-        b = 0  # dernier bric
-        self.liste_terrain = []  # contient les coords des murs
+        b = 0  # last brick
+        self.liste_terrain = []  # contains bricks coordinates
         y = 0
         for lign in self.lst_terrain[n]:
             x = 0
@@ -185,8 +185,7 @@ class Serpent:
                 if col == "1":
                     self.liste_terrain.append((x, y))
                     self.nbric2 = self.can.create_image(
-                        x*14, y*14, image=self.BRIC)  # à la fin il contiendra le
-                    # dernier bric posé
+                        x*14, y*14, image=self.BRIC)  # at the end, it will hold the last brick set
                 x += 1
             y += 1
 

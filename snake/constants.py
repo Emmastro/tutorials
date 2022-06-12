@@ -2,17 +2,20 @@ INIT = 0
 PLAYING = 1
 PAUSE = 2
 FAILED = 3
-MAXIMUM_POINT = 20
+MAXIMUM_POINT = 30
 GRID_SIZE = 14
 BOARD_WIDTH = 364
 BOARD_HEIGHT = 364
 FOOD_POINT = 1
 BONUS_POINT = 5
 FONT = 'Andalus 13'
+INCREMENT_BONUS_TIME = 2.5
+DISPLAY_POWER_FREQUENCY = 3
+GROWTH_FREQUENCY = 2
 
 IMAGES = [
     'left', 'right', 'up', 'down',
-    'body', 'life', 'food', 'power', 'bric'
+    'body', 'food', 'power', 'bric'
 ]
 
 DIRECTION = {'left': {
