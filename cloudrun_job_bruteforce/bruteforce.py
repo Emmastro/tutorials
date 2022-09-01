@@ -18,7 +18,7 @@ def bruteforce_date_of_birth(start: datetime.datetime, end: datetime.datetime):
         try:
             pikepdf.open('encrypted/covid_report.pdf', password=password)
             print("password: ", password)
-            return True
+            return
 
         except pikepdf._qpdf.PasswordError as e:
             pass
@@ -34,7 +34,7 @@ def generate_dictionary_dob(start: datetime.datetime, end: datetime.datetime):
         f.write(passwords)
 
 
-def generate_dictionary_random_password(batch_index: int, n_baches: int, password_length: int):
+def generate_dictionary_batches(batch_index: int, n_baches: int, password_length: int):
 
     chars = string.ascii_letters + string.digits
     possible_password = len(chars)**password_length
@@ -80,6 +80,6 @@ def upload_password(password):
 if __name__ == "__main__":
 
     start_time = time.time()
-    generate_dictionary_random_password(0, 1000, 6)
+    generate_dictionary_batches(0, 1000, 6)
 
     print(f"Time spent: {time.time() - start_time}")

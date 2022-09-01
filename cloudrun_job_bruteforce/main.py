@@ -2,7 +2,7 @@
 import os
 import json
 import sys
-from bruteforce import bruteforce_john_the_ripper, generate_dictionary_random_password
+from bruteforce import bruteforce_john_the_ripper, generate_dictionary_batches
 import time
 
 
@@ -16,7 +16,7 @@ PASSWORD_LENGTH = int(os.getenv("PASSWORD_LENGTH", 6))
 def main():
     start = time.time()
     print(f"Starting Task #{TASK_INDEX}, Attempt #{TASK_ATTEMPT}...")
-    generate_dictionary_random_password(0, N_BACHES, PASSWORD_LENGTH)
+    generate_dictionary_batches(0, N_BACHES, PASSWORD_LENGTH)
     bruteforce_john_the_ripper()
 
     print(f"Completed Task #{TASK_INDEX}. in {time.time() - start} seconds.")

@@ -1,0 +1,7 @@
+beautifulsoup4
+fastparquet
+numpy
+pandas
+requests
+gcsfs
+grequests
